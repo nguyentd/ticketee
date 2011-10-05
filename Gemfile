@@ -35,7 +35,9 @@ end
 group :test do
   # Pretty printed test output
  # gem 'turn', :require => false
-  gem 'cucumber-rails'
   gem 'capybara'
+  gem 'cucumber-rails'
   gem 'database_cleaner'
+  gem 'spork'
+
 end
