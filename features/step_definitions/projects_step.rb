@@ -10,13 +10,13 @@ end
 Then /^I should see "([^"]*)"$/ do |content|
   page.should have_content(content)
 end
-Given /^I am on the "([^"]*)"$/ do |page_name|
+Given /^I am on (.+)$/ do |page_name|
   visit path_to(page_name)
 end
 
 def path_to(page_name)
   case page_name
-    when /homepage/
+    when /the homepage/
       '/'
     when /the project page for "([^"]*)"/
       project_path(Project.find_by_name!($1))
