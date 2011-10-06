@@ -18,3 +18,6 @@ end
 When /^I am on (.+)$/ do |page_name|
   visit path_to(page_name)
 end
+When /^I should not see "([^"]*)"$/ do |content|
+  page.should_not have_content(content)
+end
