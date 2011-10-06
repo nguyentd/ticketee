@@ -8,7 +8,7 @@ When /^I press "([^"]*)"$/ do |button_name|
   click_button button_name
 end
 When /^I should be on (.+)$/ do |path|
-   current_path.should == path_to(path)
+  current_path.should == path_to(path)
 end
 
 When /^I should see "([^"]*)"$/ do |content|
@@ -20,4 +20,7 @@ When /^I am on (.+)$/ do |page_name|
 end
 When /^I should not see "([^"]*)"$/ do |content|
   page.should_not have_content(content)
+end
+Then /^I should see "([^"]*)" within "([^"]*)"$/ do |text, selector|
+  page.find(selector).should have_content(text)
 end
