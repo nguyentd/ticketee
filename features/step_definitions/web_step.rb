@@ -24,3 +24,9 @@ end
 Then /^I should see "([^"]*)" within "([^"]*)"$/ do |text, selector|
   page.find(selector).should have_content(text)
 end
+Then /^I should not see the "([^"]*)" link$/ do |text|
+  page.should_not have_css("a", :text => text), "Expected to see the #{text.inspect} link, but did not."
+end
+Then /^I should see the "([^"]*)" link$/ do |text|
+  page.should have_css("a", :text => text), "Expected to see the #{text.inspect} link, but did not."
+end
