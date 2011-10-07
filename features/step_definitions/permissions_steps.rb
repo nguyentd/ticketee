@@ -23,10 +23,19 @@ end
 def find_project project
   Project.find_by_name project
 end
+
 When /^I check "([^"]*)" for "([^"]*)"$/ do |permission, name|
   project = Project.find_by_name!(name)
   permission = permission.downcase.gsub(" ", "_")
   field_id = "permissions_#{project.id}_#{permission}"
   steps(%Q{When I check "#{field_id}"})
+
+end
+
+When /^I uncheck "([^"]*)" for "([^"]*)"$/ do |permission, name|
+  project = Project.find_by_name!(name)
+  permission = permission.downcase.gsub(" ", "_")
+  field_id = "permissions_#{project.id}_#{permission}"
+  steps(%Q{When I uncheck "#{field_id}"})
 
 end

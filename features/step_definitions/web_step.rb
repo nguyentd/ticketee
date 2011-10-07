@@ -33,3 +33,7 @@ end
 When /^I check "([^"]*)"$/ do |text|
   check(text)
 end
+
+When /^I uncheck "([^"]*)"$/ do |text|
+  uncheck(text)
+end

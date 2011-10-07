@@ -71,3 +71,21 @@ Feature: assigning permissions
     When I follow "Shiny!"
     When I follow "Delete"
     Then I should see "Ticket has been deleted."
+
+
+  Scenario: Having Updating but not having Deleting a ticket for a project
+    When I check "View" for "TextMate 2"
+    And I check "Delete tickets" for "TextMate 2"
+    And I uncheck "Edit tickets" for "TextMate 2"
+    And I press "Update"
+    And I follow "Sign out"
+
+    Given I am signed in as "user@ticketee.com"
+    When I follow "TextMate 2"
+    When I follow "Shiny!"
+    Then I should not see the "Edit" link
+    But I should see the "Delete" link
+    Then I follow "Delete"
+    And I should see "Ticket has been deleted."
+
+
